@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="Crypto Pulse AI — ważne wiadomości ze świata kryptowalut.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Crypto Pulse AI</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./"><span class="brand-mark">◈</span><span>CRYPTO <b>PULSE</b><small>AI INTELLIGENCE</small></span></a>
+      <button id="refreshBtn" class="icon-btn" aria-label="Odśwież wiadomości">↻</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="live-dot"></span> MARKET INTELLIGENCE <span id="updatedAt">DEMO MODE</span></div>
+        <h1>Rynek mówi.<br><em>Ty wiesz pierwszy.</em></h1>
+        <p>Najważniejsze wydarzenia ze świata krypto, bez informacyjnego szumu.</p>
+        <div class="hero-stats">
+          <div><strong id="newsCount">—</strong><span>wiadomości</span></div>
+          <div><strong id="importantCount">—</strong><span>ważne sygnały</span></div>
+          <div><strong>PL</strong><span>język analiz</span></div>
+        </div>
+      </section>
+
+      <section class="market-strip" aria-label="Obserwowane kryptowaluty">
+        <div class="section-head"><span>WATCHLIST</span><button id="editWatchlist" class="text-btn">EDYTUJ</button></div>
+        <div id="watchlist" class="coin-row"></div>
+      </section>
+
+      <section class="news-section">
+        <div class="section-head"><span>SYGNAŁY RYNKOWE</span><span class="muted">SORTOWANE WG. WAGI</span></div>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">Wszystkie</button>
+          <button class="filter" data-filter="important">Ważne</button>
+          <button class="filter" data-filter="watchlist">Moje aktywa</button>
+        </div>
+        <div id="status" class="status">Ładowanie wiadomości…</div>
+        <div id="newsList" class="news-list"></div>
+      </section>
+
+      <section class="push-card">
+        <div class="push-icon">⌁</div>
+        <div><strong>Nie przegap ważnego ruchu.</strong><p>Powiadomienia tylko o wydarzeniach, które mogą poruszyć rynkiem.</p></div>
+        <button id="pushBtn" class="primary-btn">WŁĄCZ ALERTY</button>
+        <small id="pushStatus">Powiadomienia wymagają dodania aplikacji do ekranu początkowego i konfiguracji serwera Push.</small>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <a class="selected" href="#top">◈<span>NEWS</span></a>
+      <a href="#watchlist">⌁<span>PORTFEL</span></a>
+      <a href="#settings">⚙<span>USTAWIENIA</span></a>
+    </nav>
+  </div>
+  <dialog id="watchlistDialog">
+    <form method="dialog" class="dialog-inner">
+      <div class="dialog-title"><strong>Twoja watchlista</strong><button class="icon-btn">×</button></div>
+      <p>Wybierz aktywa, o których chcesz otrzymywać ważne informacje.</p>
+      <div id="coinChoices" class="coin-choices"></div>
+      <button id="saveWatchlist" class="primary-btn" type="button">ZAPISZ WYBÓR</button>
+    </form>
+  </dialog>
+  <script src="./app.js"></script>
+</body>
+</html>
